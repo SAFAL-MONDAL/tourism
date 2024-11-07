@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="package-lock.json">
+    <link rel="stylesheet" href="package.json">
+    <link rel="stylesheet" href="guide.css">
+    <script src="guide.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+    <title>Rangbhoomi Bhraman</title>
+    
+</head>
+<body>
+    <header>
+        <h1>Tour Booking</h1>
+    </header>
+    
+    
+    <section id="travel-booking">
+        <h2>Travel Booking:</h2>
+        <form>
+            <label for="clientName">Your Name:</label>
+            <input type="text" id="clientName" name="clientName" required><br>
+
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+
+            <label for="state">Select Destination:</label>
+            <select id="state" name="state" required>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="West Bengal">West Bengal</option>
+            </select>
+    
+            <div class="date-inputs">
+                <label for="startDate">Tour Start Date:</label>
+                <input type="date" id="startDate" name="startDate" required>
+            
+                <label for="endDate">Tour End Date:</label>
+                <input type="date" id="endDate" name="endDate" required>
+            </div>
+            </select>
+    
+            <label for="hotelBooking">Hotel Booking:</label>
+            <select id="hotelBooking" name="hotelBooking">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+    
+            <label for="travelMode">Travel Mode:</label>
+            <select id="travelMode" name="travelMode">
+                <option value="train"><a href="train_booking.html">Train</a></option>
+                <option value="bus"><a href="bus_booking.html">Bus</a></option>
+                <option value="flight"><a href="flight_booking.html">Flight</a></option>
+            </select>
+    
+            <label for="pricePackage">Price Package:</label>
+            <select id="pricePackage" name="pricePackage">
+                <option value="basic">Basic</option>
+                <option value="standard">Standard</option>
+                <option value="premium">Premium</option>
+            </select>
+    
+            <button type="button" onclick="makePayment()">Make Payment</button>
+
+        </form>
+    </section>
+    
+    <section class="payment"> <button type="button" class="edit-details-button" onclick="editDetails()">Edit Details</button>
+
+        <h2>Payment</h2>
+        <p>Please select a payment method to confirm your booking.</p>
+        <p>Amount: <span id="totalPrice">[Total Price]</span></p>
+        
+        <label for="paymentMethod">Payment Method:</label>
+        <select id="paymentMethod" name="paymentMethod" onchange="showPaymentFields()" required>
+            <option value="">Select Payment Method</option>
+            <option value="upi">UPI</option>
+            <option value="card">Card</option>
+            <option value="qr">QR Code</option>
+        </select>
+        
+        <!-- Payment details fields -->
+        <div id="upiPaymentDetails" style="display: none;">
+            <label for="upiId">UPI ID:</label>
+            <input type="text" id="upiId" name="upiId" required>
+        </div>
+    
+        <div id="cardPaymentDetails" style="display: none;">
+            <label for="cardNumber">Card Number:</label>
+            <input type="text" id="cardNumber" name="cardNumber" required><br>
+    
+            <label for="cvv">CVV:</label>
+            <input type="password" id="cvv" name="cvv" required><br>
+    
+            <label for="otp">OTP:</label>
+            <input type="password" id="otp" name="otp" required>
+        </div>
+        
+        <div id="qrPaymentDetails" style="display: none;">
+            <!-- Placeholder for QR code -->
+            <img id="qrCode" src="QR.jpg" alt="QR Code" style="max-width: 200px;">
+        </div>
+    
+        <button type="button" onclick="makePayment()">pay</button>
+        <p>Please enter the OTP sent to your phone number:</p>
+        <div id="otpInput">
+            <input type="text" id="otpValue" placeholder="Enter OTP">
+            <button type="button" onclick="verifyOTP()">Verify</button>
+        </div>
+        <div id="confirmBookingButton" style="display: none;">
+            <button type="button" onclick="confirmBooking()">Confirm Booking</button><br>
+            <button type="button" onclick="generateReceipt()" id="getReceiptButton" style="display: none;">Get Receipt</button><br>
+            <button type="button" onclick="generateExcelFile()">Generate Excel</button>
+
+
+        </div>
+        <p id="paymentStatus"></p>
+    </section>
+
+    <section class="payment" id="paymentSection">
+        <!-- Your payment section content -->
+    
+        <!-- Existing button for making payment -->
+        <button type="button" onclick="makePayment()">Pay</button>
+        <p id="paymentStatus"></p>
+    </section>
+    
+    <!-- Book Tickets button and options -->
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+.state{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    width: 100%;
+    text-align: center;
+    background-color:  hsl(0, 0%, 91%);
+}
+.state .tophead{
+    padding-bottom: 50px;
+}
+.state .tophead h2{
+font-size: 100px;
+background-image: linear-gradient(to right, #ff9933, #ff9933 33%, #ffffff 33%, #ffffff 66%, #138808 66%, #138808);
+color: hsl(207, 96%, 30%);
+}
+.state .tophead p{
+    font-size: 18px;
+    line-height: 1.6;
+    text-align:justify;
+    padding: 30px;
+}
+.state .heading{
+    padding-bottom: 30px;
+    text-align: center;
+    color: hsl(207, 47%, 19%);
+}
+.state .heading span{
+    color: #9a3755;
+}
+    .region {
+        float: left;
+        width: 14%;
+        margin-bottom: 100px;
+        background-color:  hsl(0, 0%, 91%);
+    }
+
+    .region h2 {
+        text-align: left;
+    }
+    .region h2 a{
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #A0153E;
+        text-align: left;
+        transition: 0.3s ease-in-out;
+    }
+    .region h2  a:hover{
+        color: #0ee492;
+        text-decoration: none;
+    }
+    .state-list {
+        list-style-type:none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .state-list li {
+        margin-bottom: 5px;
+        text-align: left;
+    }
+
+    .state-list li a {
+        text-decoration: none;
+        color: #333;
+        transition: 0.2s ease-in-out;
+    }
+
+    .state-list li a:hover {
+        color: #007bff;
+    }

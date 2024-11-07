@@ -1,0 +1,56 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 4fr);
+    grid-gap: 20px;
+    padding-top: 200px;
+    padding-bottom: 50px;
+    justify-items: center; /* Centers items horizontally */
+    align-items: center; /* Centers items vertically */
+  }
+
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    .grid-container{
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+  }
+  .grid-item {
+    height: 150px;
+    width: 400px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-size: cover; /* Adjusts the background image size to cover the entire grid item */
+    background-position: center;
+  }
+  
+  .grid-item:hover {
+    transform: translateY(-5px);
+  }
+  .grid-container a {
+    text-decoration: none;
+  }
+  .grid-container h2 {
+    text-align: center;
+    color: #000000;
+  }
+  
+  .grid-container p {
+    text-align: center;
+    color: #000000;
+  }
+  .grid-item:nth-child(1) {
+    background-image: url('fevicon.png'); /* Replace 'image1.jpg' with the URL or path to your image */
+  }
+  
+  .grid-item:nth-child(2) {
+    background-image: url('fevicon.png'); /* Replace 'image2.jpg' with the URL or path to your image */
+  }
+  
+  .grid-item:nth-child(3) {
+    background-image: url('image3.jpg'); /* Replace 'image3.jpg' with the URL or path to your image */
+  }
+  

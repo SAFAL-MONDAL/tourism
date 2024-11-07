@@ -1,0 +1,148 @@
+/* Resetting default margin and padding */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e6e6e6d7;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background-color: #787878;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: #312020;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+#travel-booking,input
+{
+    backdrop-filter: blur(100px);
+    box-shadow: 10px 15px 100px rgba(148, 148, 148, 0.537);
+}
+section {
+    padding: 25px;
+    margin: 2000px;
+    border-radius: 15px; 
+    background-color: hsl(214, 57%, 51%);
+    color: aliceblue;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+select {
+    
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 2px 3px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+select:focus {
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#paymentMethod,
+#state,
+#hotelBooking:hover,
+#travelMode:hover,
+#pricePackage:hover
+{
+    cursor: pointer;
+}
+.date-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.date-inputs label,
+.date-inputs input {
+    width: 15%;
+}
+
+button[type="submit"],
+button[type="button"] {
+    padding: 10px 20px;
+    background-color: #26f41fdb;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease;
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+    background-color: #74f960;
+    transition: 0.2s;
+   
+}
+.payment {
+    background-color: hsl(214, 57%, 51%);
+    color: aliceblue;
+    display: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.edit-details-button {
+    float: right;
+    /* Add any additional styling here */
+}
+
+@media (min-width: 768px) {
+    /* Adjustments for larger screens */
+    body {
+        padding: 20px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+    }
+
+    nav a {
+        margin: 0 20px;
+    }
+
+    section {
+        margin: 20px auto;
+        max-width: 800px;
+    }
+}
+
